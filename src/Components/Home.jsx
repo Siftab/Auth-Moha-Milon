@@ -3,9 +3,10 @@ import { AuthContext } from '../provider/authProvider';
 
 const Home = () => {
   const info= useContext(AuthContext);
+  console.log(info)
     return (
         <div>
-          this is home  {info.name}
+          this is home 
         </div>
     );
 };

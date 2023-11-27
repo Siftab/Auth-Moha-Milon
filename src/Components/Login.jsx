@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../provider/authProvider';
 
 const Login = () => {
+  const {signInUser}=useContext(AuthContext)
     
    const handleFormSubmit=e=>{
     e.preventDefault();
     const email =e.target.email.value;
     const password=e.target.password.value;
-        console.log('ok working',e,email,password)
+        // console.log('ok working',e,email,password)
+        signInUser(email,password)
+        .then(res=>{
+          console.log(res.user)
+        })
+        .catch(err=>{
+          console.log(err)
+        })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
